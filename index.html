@@ -4,61 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Album Yêu Thích - Pastel Collection</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        .album-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .album {
-            background-color: #ffb3ba; /* Màu pastel */
-            border-radius: 10px;
-            padding: 20px;
-            width: 200px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-        }
-        .album:hover {
-            transform: scale(1.05);
-        }
-        .album img {
-            border-radius: 10px;
-            width: 100%;
-            height: auto;
-        }
-        .album a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            background-color: #ff677d; /* Màu pastel khác */
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 10px;
-        }
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Ngăn chặn tràn viền */
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Đảm bảo main không tràn */
+    }
+    
+    h1 {
+        margin-bottom: 20px;
+    }
+    
+    .album-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        max-width: 100%; /* Đảm bảo không tràn */
+    }
+    
+    .album {
+        background-color: #ffb3ba; /* Màu pastel */
+        border-radius: 10px;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+    
+    .album:hover {
+        transform: scale(1.05);
+    }
+    
+    .album img {
+        border-radius: 10px;
+        width: 100%;
+        height: auto;
+    }
+    
+    .album a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        background-color: #ff677d; /* Màu pastel khác */
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 10px;
+    }
         @media (max-width: 600px) {
             .album {
                 width: 100%; /* Full width on smaller screens */
@@ -171,6 +180,11 @@
                 title: "The Very Best of Judy Garland",
                 image: "https://th.bing.com/th/id/R.882baf8885013fbc1d6aa0814b483a02?rik=AobPSlMdesGDbA&riu=http%3a%2f%2fwww.thejudyroom.com%2fdiscs%2fcapitol%2fverybestUKlg.jpg&ehk=vVF7Jaih0JZLztT8URcOsE%2fAYOW4hPDFh3yys6QpXPw%3d&risl=&pid=ImgRaw&r=0",
                 link: "https://open.spotify.com/album/1jdGg43OAJFD7qAP9ENi7o?si=w8QjfIi3Q2mors4UvBXvdQ"
+            }
+            {
+                title: "Who Really Cares - TV Girl",
+                image: "https://i.pinimg.com/736x/a2/36/1f/a2361f252413a9e43e457ffac30e8da0.jpg",
+                link: "https://open.spotify.com/album/4oL7pMxnb04uuRI7ReXmuh?si=5rqpXPnWT1-6sF_hznnUAw"
             }
         ];
 
