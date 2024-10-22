@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Yêu Thích - Pastel Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .album-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .album {
+            background-color: #ffb3ba; /* Màu pastel */
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .album:hover {
+            transform: scale(1.05);
+        }
+        .album img {
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+        }
+        .album a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            background-color: #ff677d; /* Màu pastel khác */
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        @media (max-width: 600px) {
+            .album {
+                width: 100%; /* Full width on smaller screens */
+                max-width: 300px; /* Limit max width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Album Yêu Thích</h1>
+        <div class="album-container" id="albumContainer">
+            <!-- Album sẽ được thêm vào đây bằng JavaScript -->
+        </div>
+    </main>
+
+    <script>
+        const albums = [
+            {
+                title: "Being Funny In A Foreign Language - The 1975",
+                image: "https://th.bing.com/th/id/OIP.7V7lqaInAZafsqrGTKq-1QHaHa?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/6dVCpQ7oGJD1oYs2fv1t5M?si=_3r_HdLvRgGfe0JmNGgJWw&nd=1&dlsi=db5f56d8f1534432"
+            },
+            {
+                title: "Heaven or Las Vegas - Cocteau Twins",
+                image: "https://th.bing.com/th/id/OIP.NOxA3leOrHKh9jttCnuDTgHaHZ?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/5lEphbceIgaK1XxWeSrC9E?si=H2HI0uekToKHUBNehDfrRg&nd=1&dlsi=df2ff69f7d6d436f"
+            },
+            {
+                title: "Surrender - Maggie Rogers",
+                image: "https://cdn.shopify.com/s/files/1/1736/7609/files/BANNER-BOTTOM-01.png?v=1648217028",
+                link: "https://open.spotify.com/album/2VeOtQQAJxR8VyvmoXqIbI?si=cwmu3ijDSG2x2VKqUB36DQ"
+            },
+            {
+                title: "I LAY DOWN MY LIFE FOR YOU - JPEGMAFIA",
+                image: "https://th.bing.com/th/id/OIP.MDa4CuYeHODTemdt9n_VagHaHa?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/1ezs1QD5SYQ6LtxpC9y5I2?si=JJSbOd-zRM6HN2e5nxGuLg"
+            },
+            {
+                title: "Swimming - Mac Miller",
+                image: "https://th.bing.com/th/id/OIP.o2JHp23yd_qAMVkATb3QJAHaHa?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/5wtE5aLX5r7jOosmPhJhhk?si=NZhxAlMSSAuW8fOKYTVWXg"
+            },
+            {
+                title: "Random Access Memories - Daft Punk",
+                image: "https://th.bing.com/th/id/R.71a1407f9df541cbc1a9219591f6f275?rik=7fZmsI5Q0Yx4Iw&riu=http%3a%2f%2f3.bp.blogspot.com%2f-bjb92dhxMPY%2fUZ85873HdlI%2fAAAAAAAAFdM%2fGBngqT6pMTY%2fs1600%2fDaft%2bPunk%2b-%2bRandom%2bAccess%2bMemories.jpg&ehk=L7RJ67i88y%2fwi9rZb5IhsYF5Fbjx%2bH%2bi20IlbjWFVt8%3d&risl=&pid=ImgRaw&r=0",
+                link: "https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa?si=4lJmK8lMR-mgHc-VS54Nhg"
+            },
+            {
+                title: "Rumours - Fleetwood Mac",
+                image: "https://th.bing.com/th/id/OIP.nzxi4-wPw-IQi05BrU83IgHaEK?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/1bt6q2SruMsBtcerNVtpZB?si=VGWzmX0BRS6MExxvIiX7LQ"
+            },
+            {
+                title: "BRAT - Charli xcx",
+                image: "https://th.bing.com/th/id/OIP.j5q1lVqY0sOW3P95XJJnFwHaHa?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/2lIZef4lzdvZkiiCzvPKj7?si=oh9fo0GIS2CbSOVpFIW6Hg"
+            },
+            {
+                title: "ANOTHER SUMMER - S. Kiyotaka & Omega Tribe",
+                image: "https://th.bing.com/th/id/OIP.vBV28oix-1ozcIJR19ex5wHaHa?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/7ztCPdPiNeNGTlpsnX9mYQ?si=uR-tj3viSyu6Oqnj1mI39Q"
+            },
+            {
+                title: "Memoir of a Sparklemuffin - Suki Waterhouse",
+                image: "https://th.bing.com/th/id/OIP.8wwwG3ene-PcElQ0tYD_sAHaFP?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/5PflJDKGFMTBj49PF4KlOX?si=cowGQK8bQWKVbTMZZunGUQ"
+            },
+            {
+                title: "Titanic Rising - Weyes Blood",
+                image: "https://th.bing.com/th/id/OIP.6ONrvI_WTCk68kO8_4cXpQHaHa?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/0Cuqhgy8vm96JEkBY3polk?si=-PBCTJRiTayq18LZfkUj4w"
+            },
+            {
+                title: "Blonde - Frank Ocean",
+                image: "https://th.bing.com/th/id/R.316e04c148769e433f704a15e0048c8c?rik=82Tfbv7ezkzkwg&riu=http%3a%2f%2fcdn.cultofmac.com%2fwp-content%2fuploads%2f2016%2f08%2fBlonde_-_Frank_Ocean.jpeg&ehk=ajL3UpHVVmwgmeYoYzIuJvzPte1Cz2umD0uNk2sks9w%3d&risl=&pid=ImgRaw&r=0",
+                link: "https://open.spotify.com/album/3mH6qwIy9crq0I9YQbOuDf?si=R4arOh9zQ7i4vj8OTNKOcQ"
+            },
+            {
+                title: "Charm - Clairo",
+                image: "https://th.bing.com/th/id/OIP.3TB1TlO4QY7IG9w6--ZLagHaHa?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/1KNUCVXgIxKUGiuEB8eG0i?si=fybM5BnOQ2uUlVNffdwevQ"
+            },
+            {
+                title: "Happier Than Ever - Billie Eilish",
+                image: "https://th.bing.com/th/id/R.0177bb311f2f905b7ae7448a63b44195?rik=JM7b9JzNtl6Mmg&pid=ImgRaw&r=0",
+                link: "https://open.spotify.com/album/0JGOiO34nwfUdDrD612dOp?si=E5vgdkDZQRCFcgYArKMktg"
+            },
+            {
+                title: "In The Wee Small Hours - Frank Sinatra",
+                image: "https://th.bing.com/th/id/R.238b3e7e030a1ab89d31ea2957171158?rik=u%2f4PFm99y32Iuw&riu=http%3a%2f%2fd24jnm9llkb1ub.cloudfront.net%2ficpn%2f00602537975877%2f00602537975877-cover-zoom.jpg&ehk=kdL44ZJBxFvs3u%2f7mk%2bts2iKHilZ22wlEmsBhFpX10M%3d&risl=&pid=ImgRaw&r=0",
+                link: "https://open.spotify.com/album/3GmwKB1tgPZgXeRJZSm9WX?si=oN2LBZDEQB2jICDY2Nh0_Q"
+            },
+            {
+                title: "Harlequin - Lady Gaga",
+                image: "https://th.bing.com/th?id=OIF.qBjUalbrNfO9chRidT3%2fCw&rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/6eKdAMXNBlXNtPy7OdBL50?si=dmeB0_tdQbGHp5GrWjbZ3w"
+            },
+            {
+                title: "Manic - Halsey",
+                image: "https://th.bing.com/th/id/OIP.T5hBlwPBhCgpKoOFLHmTowHaHa?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/1hlapolkCnQLMgKcKNVCuc?si=GMCpYxL0RDuHM60v6qUc4w"
+            },
+            {
+                title: "MG Ultra - Machine Girl",
+                image: "https://th.bing.com/th/id/OIF.uyT8oYYyBZoBur81CZAwuQ?rs=1&pid=ImgDetMain",
+                link: "https://open.spotify.com/album/3598AkUpAY95SA2t4JrotL?si=DJND9_VNRf2oL-c8WkZfYQ"
+            },
+            {
+                title: "The Very Best of Judy Garland",
+                image: "https://th.bing.com/th/id/R.882baf8885013fbc1d6aa0814b483a02?rik=AobPSlMdesGDbA&riu=http%3a%2f%2fwww.thejudyroom.com%2fdiscs%2fcapitol%2fverybestUKlg.jpg&ehk=vVF7Jaih0JZLztT8URcOsE%2fAYOW4hPDFh3yys6QpXPw%3d&risl=&pid=ImgRaw&r=0",
+                link: "https://open.spotify.com/album/1jdGg43OAJFD7qAP9ENi7o?si=w8QjfIi3Q2mors4UvBXvdQ"
+            }
+        ];
+
+        const albumContainer = document.getElementById('albumContainer');
+
+        albums.forEach(album => {
+            const albumDiv = document.createElement('div');
+            albumDiv.className = 'album';
+
+            albumDiv.innerHTML = `
+                <img src="${album.image}" alt="Bìa album: ${album.title}">
+                <h3>${album.title}</h3>
+                <a href="${album.link}" target="_blank">Nghe trên Spotify</a>
+            `;
+
+            albumContainer.appendChild(albumDiv);
+        });
+    </script>
+</body>
+</html>
